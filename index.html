@@ -1,180 +1,116 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BAC Student Dashboard</title>
+  <title>Sign Up Form</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
+    /* Animate background position */
+    @keyframes slideBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
       display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
-      background: #f5f7fa;
+      margin: 0;
+      padding: 1rem;
     }
 
-    /* Sidebar */
-    .sidebar {
-      width: 240px;
-      background: #002147; /* BAC dark blue */
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
+    .signup-container {
+      background: url('Tyro.jpg') center/cover no-repeat;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 450px; /* max width on desktop */
+      color: white;
+      animation: slideBG 20s linear infinite;
+      box-sizing: border-box;
     }
 
-    .sidebar h2 {
-      color: #ffcc00; /* BAC yellow */
-      margin-bottom: 20px;
-      font-size: 20px;
+    .signup-container h2 {
       text-align: center;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
     }
 
-    .nav {
-      list-style: none;
+    .signup-container form label {
+      display: block;
+      margin: 0.7rem 0 0.3rem;
+      font-size: 1.1rem;
     }
 
-    .nav li {
-      padding: 12px 10px;
-      margin: 5px 0;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .nav li:hover {
-      background: #1a3d73;
-    }
-
-    /* Main content area */
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Header */
-    .header {
-      background: #fff;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .header .search input {
-      padding: 8px;
-      border-radius: 20px;
+    .signup-container form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.2rem;
       border: 1px solid #ccc;
-      width: 250px;
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: silver;
+      box-sizing: border-box;
     }
 
-    .header .actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .header .actions img {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
+    .signup-container form button {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #0077b6;
+      color: white;
+      font-size: 1.1rem;
       cursor: pointer;
     }
 
-    /* Content */
-    .content {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-    }
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 500px) {
+      .signup-container {
+        padding: 2rem;
+      }
 
-    .card {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+      .signup-container h2 {
+        font-size: 1.8rem;
+      }
 
-    /* Right sidebar */
-    .rightbar {
-      width: 250px;
-      background: #f1f4f9;
-      padding: 15px;
-      border-left: 1px solid #ddd;
-    }
+      .signup-container form label {
+        font-size: 1rem;
+      }
 
-    .rightbar h3 {
-      margin-bottom: 10px;
-      color: #002147;
-    }
-
-    .online-user {
-      background: #fff;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 8px;
+      .signup-container form input,
+      .signup-container form button {
+        font-size: 1rem;
+        padding: 0.7rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h2>BAC Connect</h2>
-    <ul class="nav">
-      <li>🏠 Dashboard</li>
-      <li>💬 Messages</li>
-      <li>👥 Groups</li>
-      <li>📚 Courses</li>
-      <li>📅 Events</li>
-      <li>⚙️ Settings</li>
-    </ul>
+  
+  <!-- Sign Up Container with sliding background -->
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      
+      <button type="submit">Create Account</button>
+    </form>
   </div>
 
-  <!-- Main -->
-  <div class="main">
-    <!-- Header -->
-    <div class="header">
-      <div class="search">
-        <input type="text" placeholder="Search...">
-      </div>
-      <div class="actions">
-        🔔
-        <img src="https://i.pravatar.cc/35" alt="User">
-      </div>
-    </div>
-
-    <!-- Content -->
-    <div class="content">
-      <div class="card">
-        <h3>📢 Announcement</h3>
-        <p>Welcome to the BAC student platform! Stay tuned for updates and events.</p>
-      </div>
-      <div class="card">
-        <h3>💬 Recent Message</h3>
-        <p><strong>Student A:</strong> Hey guys, did you check the new timetable?</p>
-      </div>
-      <div class="card">
-        <h3>📚 Group Update</h3>
-        <p><strong>Accounting Group:</strong> Assignment deadline moved to next Monday.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Rightbar -->
-  <div class="rightbar">
-    <h3>🟢 Online Students</h3>
-    <div class="online-user">John Doe</div>
-    <div class="online-user">Mary Jane</div>
-    <div class="online-user">Kabelo Phiri</div>
-  </div>
 </body>
 </html>
